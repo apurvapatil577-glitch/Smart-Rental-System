@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | RentNest</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            height: 70px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #117f78;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-size: 15px;
+            font-weight: 200;
+        }
+
+        .nav-links a:hover {
+            color: #117f78;
+        }
+
+        .login-btn {
+            border: 1px solid #117f78;
+            padding: 12px 25px;
+            border-radius: 10px;
+        }
+
+        .register-btn {
+            background: #117f78;
+            color: white !important;
+            padding: 12px 26px;
+            border-radius: 10px;
+        }
+
+        .register-btn:hover {
+            background: #0d6963;
+        }
+
+        /* ================= CONTACT SECTION ================= */
+
+        .contact-section {
+            min-height: 470px;
+            background: #0f172a;
+            padding: 85px 8%;
+            text-align: center;
+        }
+
+        .small-title {
+            color: #00b8b0;
+            font-size: 17px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .contact-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .contact-section > p {
+            color: #cbd5e1;
+            font-size: 19px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* ================= CONTACT CARDS ================= */
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            width: 250px;
+            min-height: 170px;
+            background: #182338;
+            border-radius: 15px;
+            padding: 28px 20px;
+            border: 1px solid #26334a;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            transition: 0.3s;
+            border-color: #00b8b0;
+        }
+
+        .contact-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .contact-card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: #b8c5d6;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #020617;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .footer-logo {
+            color: #00b8b0;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            color: #9fb0c7;
+            font-size: 17px;
+            margin: 8px 0;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                height: auto;
+                padding: 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 17px;
+            }
+
+            .contact-section h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏠 RentNest
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/properties">Properties</a>
+
+            <a href="/#about">About</a>
+
+            <a href="/contact">Contact</a>
+
+            <a href="/login" class="login-btn">Login</a>
+
+            <a href="/register" class="register-btn">Register</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact-section">
+
+        <div class="small-title">
+            CONTACT RENTNEST
+        </div>
+
+        <h1>
+            We're here to help.
+        </h1>
+
+        <p>
+            Have questions about rental properties, rooms or
+            managing your property? Contact the RentNest team
+            and we will be happy to help you.
+        </p>
+
+
+        <div class="contact-container">
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📧
+                </div>
+
+                <h3>
+                    Email Us
+                </h3>
+
+                <p>
+                    support@rentnest.com
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <h3>
+                    Call Us
+                </h3>
+
+                <p>
+                    +91 98765 43210
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <h3>
+                    Location
+                </h3>
+
+                <p>
+                    Maharashtra, India
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            🏠 RentNest
+        </div>
+
+        <p>
+            Smart Rental & Room Management System
+        </p>
+
+        <p>
+            © 2026 RentNest. BCA Final Year Project.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

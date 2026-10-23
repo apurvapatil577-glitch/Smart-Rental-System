@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Tenant Dashboard | RentNest</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏠 RentNest
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/properties">
+                Properties
+            </a>
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ========================= -->
+    <!-- TENANT DASHBOARD -->
+    <!-- ========================= -->
+
+    <section class="tenant-dashboard">
+
+
+        <!-- ========================= -->
+        <!-- DASHBOARD HEADING -->
+        <!-- ========================= -->
+
+        <div class="dashboard-heading">
+
+            <p class="small-heading">
+                TENANT DASHBOARD
+            </p>
+
+            <h1>
+                👋 Welcome, {{ name }}!
+            </h1>
+
+            <p>
+                Find and manage your rental home with RentNest.
+            </p>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- DASHBOARD CARDS -->
+        <!-- ========================= -->
+
+        <div class="dashboard-cards">
+
+
+            <!-- ========================= -->
+            <!-- BROWSE PROPERTIES -->
+            <!-- ========================= -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    🏠
+                </div>
+
+                <h2>
+                    Browse Properties
+                </h2>
+
+                <p>
+                    Explore available flats, rooms
+                    and rental properties.
+                </p>
+
+                <a href="/properties"
+                   class="card-button">
+
+                    View Properties
+
+                </a>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- MY BOOKING -->
+            <!-- ========================= -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    💌
+                </div>
+
+                <h2>
+                    My Booking
+                </h2>
+
+                <p>
+                    View your property interest
+                    and rental booking requests.
+                </p>
+
+                <a href="/my-booking"
+                   class="card-button">
+
+                    View Booking
+
+                </a>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- MAINTENANCE -->
+            <!-- ========================= -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    🔧
+                </div>
+
+                <h2>
+                    Maintenance
+                </h2>
+
+                <p>
+                    Report maintenance problems
+                    in your rented property.
+                </p>
+
+                <a href="/my-maintenance"
+                   class="card-button">
+
+                    Maintenance
+
+                </a>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <div class="dashboard-card">
+                <div class="card-icon">💰</div>
+                <h2>My Rent</h2>
+                <p>View your rent amount, due date and payment status.</p>
+                <a href="/tenant-rent" class="card-button">View Rent</a>
+            </div>
+
+            <!-- MY PROFILE -->
+            <!-- ========================= -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    👤
+                </div>
+
+                <h2>
+                    My Profile
+                </h2>
+
+                <p>
+                    Manage your basic RentNest
+                    account information.
+                </p>
+
+                <a href="/profile"
+                   class="card-button">
+
+                    View Profile
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

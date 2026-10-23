@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Rental Requests | RentNest</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="dashboard-page">
+<nav class="navbar"><div class="logo">🏠 RentNest</div><div class="nav-links"><a href="/owner-dashboard">Dashboard</a><a href="/owner-properties">My Properties</a><a href="/owner-rent">Rent</a><a href="/logout">Logout</a></div></nav>
+<section class="dashboard-section"><div class="dashboard-heading"><p class="small-heading">OWNER RENTAL REQUESTS</p><h1>📩 Rental Requests</h1><p>Accept or reject tenant requests for your properties.</p></div>
+<div class="dashboard-cards">
+{% for req in requests %}<div class="dashboard-card"><div class="card-icon">📩</div><h2>{{ req['property_title'] }}</h2><p>👤 <strong>{{ req['tenant_name'] }}</strong><br>📧 {{ req['tenant_email'] }}<br>📍 {{ req['property_location'] }}<br>💰 ₹{{ req['property_rent'] }} / month<br>📅 {{ req['request_date'] }}<br>📌 Status: <strong>{{ req['status'] }}</strong></p>
+{% if req['status'] == 'Pending' %}<a href="{{ url_for('accept_request', request_id=req['id']) }}" class="card-button">✅ Accept</a><a href="{{ url_for('reject_request', request_id=req['id']) }}" class="card-button" onclick="return confirm('Reject this rental request?');">❌ Reject</a>{% else %}<span class="card-button">{{ req['status'] }}</span>{% endif %}</div>
+{% else %}<div class="dashboard-card"><div class="card-icon">📩</div><h2>No Rental Requests</h2><p>No tenant requests have been received yet.</p></div>{% endfor %}
+</div>
+
+    <div>   
+    <a href="/owner-dashboard"
+           class="card-button">
+
+            ← Dashboard
+
+        </a>
+
+    </div>
+
+
+</section>
+</body>
+</html>

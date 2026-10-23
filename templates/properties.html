@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properties | RentNest</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-body">
+<nav class="navbar">
+  <div class="logo">🏠 RentNest</div>
+
+  <div class="nav-links">
+
+    <a href="/">Home</a><a href="/properties">Properties</a>
+
+    {% if session.get('user_id') %}
+
+      <a href="{{ url_for('owner_dashboard' if session.get('role') == 'Owner' else 'tenant_dashboard') }}">Dashboard</a>
+      <a href="/logout">Logout</a>
+
+    {% else %}
+
+    <a href="/login">Login</a>
+
+    {% endif %}
+  </div>
+
+</nav>
+
+<section class="dashboard-section">
+
+  <div class="dashboard-heading">
+
+    <p class="small-heading">RENTNEST PROPERTIES</p>
+    <h1>Find Your Perfect Home 🏠</h1>
+    <p>Search and filter available rental properties.</p>
+
+  </div>
+
+  <form method="GET" action="{{ url_for('properties') }}" class="dashboard-card" style="margin-bottom:25px;">
+
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:12px;align-items:end;">
+
+      <div>
+        <label>Search</label>
+        <input name="search" value="{{ search }}" placeholder="Title, location or facility">
+
+      </div>
+
+        <div>
+        <label>Property Type</label>
+        <select name="type">
+          <option value="">All Types</option>
+          {% for t in property_types %}
+          <option value="{{ t['property_type'] }}" {% if selected_type == t['property_type'] %}selected{% endif %}>{{ t['property_type'] }}</option>
+
+          {% endfor %}
+        
+        </select>
+      
+      </div>
+
+      <div>
+        <label>Maximum Rent</label>
+        <input type="number" name="max_rent" value="{{ max_rent }}" min="0" placeholder="₹ / month">
+      
+      </div>
+
+      <button class="card-button" type="submit">🔎 Search</button>
+    </div>
+
+  </form>
+  <div class="dashboard-cards">
+    {% for property in properties %}
+    <div class="dashboard-card">
+      {% if property['image'] %}<img src="{{ url_for('static', filename='uploads/' + property['image']) }}" style="width:100%;height:180px;object-fit:cover;border-radius:12px;">{% else %}<div class="card-icon">🏠</div>{% endif %}
+      <h2>{{ property['title'] }}</h2>
+      <p>📍 {{ property['location'] }}<br>💰 ₹{{ property['rent'] }} / month<br>🏠 {{ property['property_type'] }}<br>💳 Deposit: ₹{{ property['deposit'] or 0 }}<br>✨ {{ property['facilities'] or 'Facilities available' }}<br>📌 {{ property['status'] }}</p>
+      <a href="{{ url_for('property_details', property_id=property['id']) }}" class="card-button">View Details</a>
+    </div>
+    {% else %}
+    
+    <div class="dashboard-card">
+      <h2>No Properties Found</h2>
+      <p>Try another search or add a new property.</p>
+      <a href="{{ url_for('properties') }}" class="card-button">Clear Filters</a>
+    </div>
+    
+    {% endfor %}
+
+  </div>
+
+    <div>
+        <a href="/tenant-dashboard"
+           class="card-button">
+
+            ← Dashboard
+
+        </a>
+
+    </div>
+
+</section>
+</body>
+</html>

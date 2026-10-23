@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Booking | RentNest</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f0fdfa;
+        }
+
+        .booking-page {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .booking-title {
+            text-align: center;
+            color: #0f766e;
+            font-size: 35px;
+            margin-bottom: 35px;
+        }
+
+        .booking-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-left: 6px solid #0f766e;
+        }
+
+        .booking-card h2 {
+            color: #12355b;
+            margin-top: 0;
+        }
+
+        .booking-card p {
+            color: #475569;
+            font-size: 16px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 20px;
+            background: #fff3cd;
+            color: #856404;
+            font-weight: bold;
+        }
+
+        .empty {
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .empty h2 {
+            color: #0f766e;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            margin-right: 10px;
+            padding: 12px 22px;
+            background: #0f766e;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏠 RentNest
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/properties">
+                Properties
+            </a>
+
+            <a href="/tenant-dashboard">
+                Dashboard
+            </a>
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- BOOKING PAGE -->
+
+    <div class="booking-page">
+
+        <h1 class="booking-title">
+            ❤️ My Rental Requests
+        </h1>
+
+
+        {% if bookings %}
+
+
+            {% for booking in bookings %}
+
+                <div class="booking-card">
+
+                    <h2>
+                        🏠 {{ booking["title"] }}
+                    </h2>
+
+                    <p>
+                        <strong>Booking ID:</strong>
+                        {{ booking["id"] }}
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong> {{ booking["location"] }}<br>
+                        <strong>Monthly Rent:</strong> ₹{{ booking["rent"] }}<br>
+                        <strong>Request Date:</strong> {{ booking["request_date"] }}
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+                    </p>
+
+                    <span class="status">{{ booking["status"] }}</span>
+                    {% if booking["status"] == "Accepted" %}
+                    <br><br><a href="/maintenance/{{ booking['property_id'] }}" class="back-button">🔧 Report Maintenance</a>
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+
+
+        {% else %}
+
+
+            <div class="empty">
+
+                <h2>
+                    🏠 No Rental Request Yet
+                </h2>
+
+                <p>
+                    You have not sent any rental request yet.
+                </p>
+
+                <a href="/properties"
+                   class="back-button">
+
+                    Browse Properties
+
+                </a>
+
+            </div>
+
+
+        {% endif %}
+
+
+        <br>
+
+        <a href="/tenant-dashboard"
+           class="back-button">
+
+            ← Dashboard
+
+        </a>
+
+
+    </div>
+
+
+</body>
+
+</html>

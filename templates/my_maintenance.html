@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Maintenance | RentNest</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="dashboard-page">
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏠 RentNest
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/properties">
+            Properties
+        </a>
+
+        <a href="/tenant-dashboard">
+            Dashboard
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="dashboard-section">
+
+    <div class="dashboard-heading">
+
+        <p class="small-heading">
+            MY MAINTENANCE
+        </p>
+
+        <h1>
+            🔧 My Maintenance Requests
+        </h1>
+
+    </div>
+
+
+    <div class="dashboard-cards">
+
+        {% for request in maintenance_requests %}
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                🔧
+            </div>
+
+            <h2>
+                {{ request["title"] }}
+            </h2>
+
+            <p>
+
+                📍 {{ request["location"] }}
+
+                <br><br>
+
+                <strong>Problem:</strong>
+
+                <br>
+
+                {{ request["problem"] }}
+
+                <br><br>
+
+                <strong>Status:</strong>
+
+                {{ request["status"] }}
+
+            </p>
+
+        </div>
+
+        {% else %}
+
+        <div class="dashboard-card">
+
+            <h2>
+                No Maintenance Requests
+            </h2>
+
+            <p>
+                You have not submitted any maintenance request yet.
+            </p>
+            
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div>
+        <a href="/tenant-dashboard"
+           class="card-button">
+
+            ← Dashboard
+
+        </a>
+
+    </div>
+
+
+</section>
+
+</body>
+
+</html>

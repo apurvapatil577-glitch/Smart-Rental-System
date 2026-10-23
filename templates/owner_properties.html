@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Properties | RentNest</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏠 RentNest
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/owner-dashboard">
+            Dashboard
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- PAGE -->
+
+<section class="tenant-dashboard">
+
+
+    <div class="dashboard-heading">
+
+        <p class="small-heading">
+            OWNER
+        </p>
+
+        <h1>
+            🏢 My Properties
+        </h1>
+
+        <p>
+            Manage the properties you have added.
+        </p>
+
+    </div>
+
+
+
+    <!-- ADD PROPERTY -->
+
+    <div style="text-align:center; margin-bottom:30px;">
+
+        <a href="/add-property"
+           class="card-button">
+
+            ➕ Add New Property
+
+        </a>
+
+    </div>
+
+
+
+    <!-- PROPERTY LIST -->
+
+    <div class="dashboard-cards">
+
+
+        {% if properties %}
+
+
+            {% for property in properties %}
+
+
+            <div class="dashboard-card">
+
+
+                <!-- IMAGE -->
+
+                {% if property["image"] %}
+
+                    <img src="{{ url_for('static',
+                         filename='uploads/' + property['image']) }}"
+                         style="
+                         width:100%;
+                         height:160px;
+                         object-fit:cover;
+                         border-radius:12px;
+                         margin-bottom:15px;
+                         ">
+
+                {% else %}
+
+                    <div class="card-icon">
+                        🏠
+                    </div>
+
+                {% endif %}
+
+
+
+                <h2>
+                    {{ property["title"] }}
+                </h2>
+
+
+                <p>
+                    📍 {{ property["location"] }}
+                </p>
+
+
+                <p>
+                    🏠 Type:
+                    {{ property["property_type"] }}
+                </p>
+
+
+                <p>
+                    💰 Rent:
+                    ₹{{ property["rent"] }}
+                </p>
+
+
+                <p>
+                    🔐 Deposit:
+                    ₹{{ property["deposit"] or 0 }}
+                </p>
+
+
+                <p>
+                    ✨
+                    {{ property["facilities"] or "No facilities added" }}
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Status:
+                    </strong>
+
+                    {{ property["status"] }}
+
+                </p>
+
+
+
+                <!-- VIEW -->
+
+                <a href="/property/{{ property['id'] }}"
+                   class="card-button">
+
+                    👁️ View Details
+
+                </a>
+
+
+                <!-- EDIT -->
+
+                <a href="/edit-property/{{ property['id'] }}"
+                   class="card-button">
+
+                    ✏️ Edit
+
+                </a>
+
+
+                <!-- DELETE -->
+
+                <a href="/delete-property/{{ property['id'] }}"
+                   class="card-button"
+                   onclick="return confirm('Are you sure you want to delete this property?');">
+
+                    🗑️ Delete
+
+                </a>
+
+
+            </div>
+
+
+            {% endfor %}
+
+
+        {% else %}
+
+
+            <!-- NO PROPERTY -->
+
+            <div class="dashboard-card"
+                 style="max-width:500px; margin:auto;">
+
+                <div class="card-icon">
+                    🏠
+                </div>
+
+                <h2>
+                    No Properties Yet
+                </h2>
+
+                <p>
+                    You have not added any property yet.
+                </p>
+
+                <br>
+
+                <a href="/add-property"
+                   class="card-button">
+
+                    Add Your First Property
+
+                </a>
+
+            </div>
+
+
+        {% endif %}
+
+
+    </div>
+
+        <div>   
+    <a href="/owner-dashboard"
+           class="card-button">
+
+            ← Dashboard
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>My Rent | RentNest</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="dashboard-page"><nav class="navbar"><div class="logo">🏠 RentNest</div><div class="nav-links"><a href="/tenant-dashboard">Dashboard</a><a href="/properties">Properties</a><a href="/profile">Profile</a><a href="/logout">Logout</a></div></nav><section class="dashboard-section"><div class="dashboard-heading"><p class="small-heading">TENANT RENT</p><h1>💰 My Rent Records</h1></div><div class="dashboard-cards">{% for rent in rent_records %}<div class="dashboard-card"><div class="card-icon">💰</div><h2>{{ rent['property_title'] }}</h2><p>📍 {{ rent['property_location'] }}<br>💵 Amount: ₹{{ rent['amount'] }}<br>📅 Due Date: {{ rent['due_date'] or 'Not set' }}<br>📌 Status: <strong>{{ rent['status'] }}</strong>{% if rent['status']=='Paid' %}<br>✅ Paid: {{ rent['payment_date'] }}{% endif %}</p></div>{% else %}<div class="dashboard-card"><h2>No Rent Records</h2><p>Your owner has not added a rent record yet.</p>
+
+
+
+</div>{% endfor %}</div> 
+<div>   
+    <a href="/tenant-dashboard"
+           class="card-button">
+
+            ← Dashboard
+
+        </a>
+
+    </div>
+</section>
+</body>
+</html>

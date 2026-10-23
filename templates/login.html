@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | RentNest</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body class="auth-body">
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏠 RentNest
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/">
+                Properties
+            </a>
+
+            <a href="/">
+                About
+            </a>
+
+            <a href="/">
+                Contact
+            </a>
+
+            <a href="/login"
+               class="login-btn">
+
+               Login
+
+            </a>
+
+            <a href="/register"
+               class="register-btn">
+
+                Register
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         LOGIN SECTION
+    ========================== -->
+
+    <section class="auth-section">
+
+
+        <!-- LEFT IMAGE -->
+
+        <div class="auth-image">
+
+            <div class="auth-overlay">
+
+                <p>
+                    WELCOME BACK TO RENTNEST
+                </p>
+
+                <h1>
+                    Your next home
+                    is waiting for you.
+                </h1>
+
+                <span>
+                    Login to discover rental
+                    properties and manage your
+                    rental journey easily.
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RIGHT LOGIN FORM -->
+
+        <div class="auth-form">
+
+
+            <div class="form-heading">
+
+                <p class="small-heading">
+                    WELCOME BACK
+                </p>
+
+                <h2>
+                    Login
+                </h2>
+
+                <p>
+                    Login to your RentNest account
+                    to continue.
+                </p>
+
+            </div>
+
+
+
+            <!-- LOGIN FORM -->
+
+            <form method="POST"
+                  action="/login">
+
+
+                <!-- EMAIL -->
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required>
+
+
+
+                <!-- PASSWORD -->
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required>
+
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="auth-submit">
+
+                    Login
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- REGISTER LINK -->
+
+            <p class="account-text">
+
+                Don't have an account?
+
+                <a href="/register">
+                    Create Account
+                </a>
+
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

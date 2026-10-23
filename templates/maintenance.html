@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Maintenance | RentNest</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="dashboard-page">
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏠 RentNest
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/properties">
+            Properties
+        </a>
+
+        <a href="/tenant-dashboard">
+            Dashboard
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="dashboard-section">
+
+    <div class="dashboard-heading">
+
+        <p class="small-heading">
+            MAINTENANCE REQUEST
+        </p>
+
+        <h1>
+            🔧 Report a Problem
+        </h1>
+
+        <p>
+            {{ property["title"] }}
+        </p>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <h2>
+            {{ property["title"] }}
+        </h2>
+
+        <p>
+            📍 {{ property["location"] }}
+        </p>
+
+
+        <form method="POST">
+
+            <label>
+                Describe Your Problem
+            </label>
+
+            <br><br>
+
+            <textarea
+                name="problem"
+                rows="6"
+                placeholder="Example: Water leakage in bathroom..."
+                required></textarea>
+
+            <br><br>
+
+            <button
+                type="submit"
+                class="card-button">
+
+                Submit Request
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>

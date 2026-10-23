@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Property | RentNest</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="auth-body">
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏠 RentNest
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/owner-dashboard">
+            Dashboard
+        </a>
+
+        <a href="/owner-properties">
+            My Properties
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="auth-container">
+
+    <div class="auth-card">
+
+        <h1>✏️ Edit Property</h1>
+
+        <p>Update your property details.</p>
+
+        <form method="POST">
+
+            <label>Property Name</label>
+
+            <input type="text"
+                   name="title"
+                   value="{{ property['title'] }}"
+                   required>
+
+
+            <label>Property Type</label>
+
+            <select name="property_type" required>
+
+                <option value="{{ property['property_type'] }}">
+                    {{ property['property_type'] }}
+                </option>
+
+                <option value="1 BHK">1 BHK</option>
+                <option value="2 BHK">2 BHK</option>
+                <option value="3 BHK">3 BHK</option>
+                <option value="Room">Room</option>
+                <option value="PG">PG</option>
+
+            </select>
+
+
+            <label>Location</label>
+
+            <input type="text"
+                   name="location"
+                   value="{{ property['location'] }}"
+                   required>
+
+
+            <label>Monthly Rent</label>
+
+            <input type="number"
+                   name="rent"
+                   value="{{ property['rent'] }}"
+                   required>
+
+
+            <label>Deposit</label>
+
+            <input type="number"
+                   name="deposit"
+                   value="{{ property['deposit'] or '' }}">
+
+
+            <label>Facilities</label>
+
+            <input type="text"
+                   name="facilities"
+                   value="{{ property['facilities'] or '' }}">
+
+
+            <button type="submit"
+                    class="card-button">
+
+                Update Property
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+</body>
+</html>

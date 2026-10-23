@@ -1,0 +1,1815 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8fafc;
+    color: #172033;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: white;
+
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.logo {
+    font-size: 27px;
+
+    font-weight: bold;
+
+    color: #0f766e;
+}
+
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+.nav-links a {
+    text-decoration: none;
+
+    color: #334155;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+.nav-links a:hover {
+    color: #0f766e;
+}
+
+
+.login-btn {
+    border: 1px solid #0f766e;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+}
+
+
+.register-btn {
+    background: #0f766e;
+
+    color: white !important;
+
+    padding: 11px 19px;
+
+    border-radius: 8px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 570px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 70px 8%;
+
+    background:
+        linear-gradient(
+            rgba(15, 23, 42, 0.68),
+            rgba(15, 23, 42, 0.68)
+        ),
+        url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+.hero-content {
+    max-width: 650px;
+
+    color: white;
+}
+
+
+.small-heading {
+    color: #14b8a6;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+
+.hero h1 {
+    font-size: 65px;
+
+    line-height: 1.08;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 span {
+    color: #2dd4bf;
+}
+
+
+.hero-text {
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    color: #e2e8f0;
+
+    max-width: 560px;
+
+    margin-bottom: 35px;
+}
+
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+}
+
+
+.primary-btn,
+.secondary-btn {
+    text-decoration: none;
+
+    padding: 15px 25px;
+
+    border-radius: 9px;
+
+    font-weight: bold;
+}
+
+
+.primary-btn {
+    background: #0f766e;
+
+    color: white;
+}
+
+
+.secondary-btn {
+    background: white;
+
+    color: #0f766e;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-section {
+    margin-top: -45px;
+
+    position: relative;
+
+    padding: 0 7%;
+}
+
+
+.search-box {
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: end;
+
+    gap: 20px;
+
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.12);
+}
+
+
+.search-item {
+    flex: 1;
+}
+
+
+.search-item label {
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+    color: #475569;
+}
+
+
+.search-item input,
+.search-item select {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+
+.search-btn {
+    background: #0f766e;
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 28px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   PROPERTY SECTION
+========================= */
+
+.properties-section {
+    padding: 100px 7%;
+}
+
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+
+.section-heading p {
+    color: #0f766e;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+
+.section-heading h2 {
+    font-size: 40px;
+
+    margin-bottom: 12px;
+}
+
+
+.section-heading span {
+    color: #64748b;
+}
+
+
+.property-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 28px;
+}
+
+
+.property-card {
+    background: white;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px
+        rgba(15, 23, 42, 0.08);
+
+    transition: 0.3s;
+}
+
+
+.property-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 35px
+        rgba(15, 23, 42, 0.14);
+}
+
+
+.property-image {
+    height: 230px;
+
+    background-size: cover;
+
+    background-position: center;
+
+    position: relative;
+}
+
+
+.image-one {
+    background-image:
+        url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80");
+}
+
+
+.image-two {
+    background-image:
+        url("https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80");
+}
+
+
+.image-three {
+    background-image:
+        url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80");
+}
+
+
+.available {
+    position: absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.property-info {
+    padding: 22px;
+}
+
+
+.property-info h3 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+
+.location {
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+
+.property-details {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+
+.property-details span {
+    color: #475569;
+
+    font-size: 12px;
+}
+
+
+.property-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-top: 18px;
+}
+
+
+.property-bottom strong {
+    color: #0f766e;
+
+    font-size: 20px;
+}
+
+
+.property-bottom small {
+    color: #64748b;
+
+    font-size: 12px;
+
+    font-weight: normal;
+}
+
+
+.property-bottom button {
+    border: none;
+
+    background: #f0fdfa;
+
+    color: #0f766e;
+
+    padding: 9px 13px;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-section {
+    padding: 90px 12%;
+
+    background: #0f172a;
+
+    color: white;
+
+    text-align: center;
+}
+
+
+.about-section div {
+    max-width: 750px;
+
+    margin: auto;
+}
+
+
+.about-section h2 {
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+
+.about-section p:last-child {
+    color: #cbd5e1;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #020617;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 45px 20px;
+}
+
+
+footer h2 {
+    color: #2dd4bf;
+
+    margin-bottom: 10px;
+}
+
+
+footer p {
+    color: #94a3b8;
+
+    margin-top: 8px;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .property-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-box {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px 5%;
+
+        height: auto;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 500px;
+
+        padding: 50px 7%;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .property-container {
+        grid-template-columns: 1fr;
+    }
+
+    .properties-section {
+        padding: 70px 5%;
+    }
+
+}
+/* =========================
+   AUTH / REGISTER PAGE
+========================= */
+
+.auth-body {
+    background: #f8fafc;
+}
+
+
+.auth-section {
+    min-height: calc(100vh - 75px);
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    padding: 40px 7%;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+
+.auth-image {
+    min-height: 620px;
+
+    border-radius: 22px;
+
+    background-image:
+        linear-gradient(
+            rgba(15, 23, 42, 0.45),
+            rgba(15, 23, 42, 0.65)
+        ),
+        url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=80");
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    align-items: end;
+
+    padding: 45px;
+
+    color: white;
+}
+
+
+.auth-overlay {
+    max-width: 480px;
+}
+
+
+.auth-overlay p {
+    color: #5eead4;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+
+.auth-overlay h1 {
+    font-size: 48px;
+
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+}
+
+
+.auth-overlay span {
+    color: #e2e8f0;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+.auth-form {
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(15, 23, 42, 0.10);
+
+    max-width: 520px;
+
+    width: 100%;
+
+    margin: auto;
+}
+
+
+.form-heading {
+    margin-bottom: 30px;
+}
+
+
+.form-heading h2 {
+    font-size: 38px;
+
+    color: #172033;
+
+    margin-bottom: 8px;
+}
+
+
+.form-heading p:last-child {
+    color: #64748b;
+
+    line-height: 1.5;
+}
+
+
+.auth-form form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.auth-form label {
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #334155;
+
+    margin-top: 8px;
+}
+
+
+.auth-form input,
+.auth-form select {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    background: white;
+}
+
+
+.auth-form input:focus,
+.auth-form select:focus {
+    border-color: #0f766e;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(15, 118, 110, 0.10);
+}
+
+
+.auth-submit {
+    margin-top: 18px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #0f766e;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.auth-submit:hover {
+    background: #115e59;
+}
+
+
+.account-text {
+    text-align: center;
+
+    margin-top: 22px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+.account-text a {
+    color: #0f766e;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+
+/* Register page mobile */
+
+@media (max-width: 900px) {
+
+    .auth-section {
+        grid-template-columns: 1fr;
+
+        padding: 30px 5%;
+    }
+
+
+    .auth-image {
+        min-height: 400px;
+    }
+
+
+    .auth-overlay h1 {
+        font-size: 38px;
+    }
+
+}
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.login-page {
+    background: #f8fafc;
+}
+
+
+.login-info {
+    max-width: 500px;
+}
+
+
+.login-info h1 {
+    font-size: 48px;
+
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+}
+
+
+.login-info p {
+    color: #e2e8f0;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+/* =========================
+   TENANT DASHBOARD
+========================= */
+
+.dashboard-body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f8fa;
+    color: #1f2937;
+}
+
+
+/* =========================
+   DASHBOARD SECTION
+========================= */
+
+.dashboard-section {
+    padding: 60px 7%;
+    min-height: calc(100vh - 80px);
+}
+
+
+/* =========================
+   DASHBOARD HEADING
+========================= */
+
+.dashboard-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.dashboard-heading .small-heading {
+    color: #0f766e;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.dashboard-heading h1 {
+    font-size: 42px;
+    margin: 0 0 12px;
+    color: #172033;
+}
+
+.dashboard-heading > p:last-child {
+    font-size: 17px;
+    color: #64748b;
+}
+
+
+/* =========================
+   DASHBOARD CARDS
+========================= */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-bottom: 45px;
+}
+
+
+.dashboard-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+    border: 1px solid #e5e7eb;
+}
+
+
+.dashboard-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+.card-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6f7f5;
+    border-radius: 14px;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+
+.dashboard-card h2 {
+    font-size: 21px;
+    margin-bottom: 12px;
+    color: #172033;
+}
+
+
+.dashboard-card p {
+    color: #64748b;
+    line-height: 1.6;
+    min-height: 75px;
+}
+
+
+.card-button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 11px 18px;
+    background: #0f766e;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+
+.card-button:hover {
+    background: #115e59;
+}
+
+
+/* =========================
+   INFORMATION SECTION
+========================= */
+
+.dashboard-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+.dashboard-info > div {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+}
+
+
+.dashboard-info span {
+    font-size: 32px;
+}
+
+
+.dashboard-info h3 {
+    margin: 12px 0 8px;
+    color: #172033;
+}
+
+
+.dashboard-info p {
+    color: #64748b;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .dashboard-section {
+        padding: 40px 5%;
+    }
+
+    .dashboard-heading h1 {
+        font-size: 30px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-info {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================
+   PROPERTY INFORMATION GRID
+========================= */
+
+.property-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 20px 0 30px;
+}
+
+.property-info-grid div {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.property-info-grid strong {
+    display: block;
+    color: #334155;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.property-info-grid span {
+    color: #0f766e;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+@media (max-width: 700px) {
+
+    .property-info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+/* =====================================
+   ATTRACTIVE PROPERTY DETAILS PAGE
+===================================== */
+
+.property-details-section {
+    padding: 35px 6%;
+    background: #f5f8fa;
+    min-height: calc(100vh - 75px);
+}
+
+/* MAIN CARD */
+
+.property-details-card {
+    max-width: 950px;
+    margin: 25px auto;
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.10);
+}
+
+/* =====================================
+   SQUARE PROPERTY IMAGE
+===================================== */
+
+.property-details-card .property-image {
+    width: 100%;
+    height: 280px !important;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.property-details-card .property-image img {
+    width: 280px !important;
+    height: 280px !important;
+    object-fit: cover;
+    display: block;
+}
+/* =====================================
+   PROPERTY INFORMATION
+===================================== */
+
+.property-details-card .property-info {
+    padding: 30px 38px 35px;
+}
+
+/* AVAILABLE BADGE */
+
+.property-badge {
+    display: inline-block;
+    background: #dcfce7;
+    color: #15803d;
+    padding: 7px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* TITLE */
+
+.property-details-card .property-info h1 {
+    font-size: 32px;
+    color: #172033;
+    margin: 5px 0 8px;
+}
+
+/* LOCATION */
+
+.property-details-card .property-location {
+    color: #64748b;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+/* RENT */
+
+.property-details-card .property-price {
+    color: #0f766e;
+    font-size: 27px;
+    font-weight: bold;
+    margin: 12px 0 25px;
+}
+
+.property-details-card .property-price span {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* =====================================
+   PROPERTY OVERVIEW
+===================================== */
+
+.property-details-card .property-info h2 {
+    color: #172033;
+    font-size: 23px;
+    margin: 25px 0 15px;
+}
+
+/* =====================================
+   FEATURE BOXES
+===================================== */
+
+.property-details-card .property-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.property-details-card .property-features div {
+    background: #f0fdfa;
+    border: 1px solid #ccfbf1;
+    padding: 15px 10px;
+    border-radius: 13px;
+    text-align: center;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.property-details-card .property-features div:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(15, 118, 110, 0.12);
+}
+
+.property-details-card .property-features strong {
+    display: block;
+    color: #172033;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.property-details-card .property-features small {
+    display: block;
+    color: #64748b;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+/* =====================================
+   PROPERTY INFORMATION GRID
+===================================== */
+
+.property-details-card .property-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 20px 0 30px;
+}
+
+.property-details-card .property-info-grid div {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.property-details-card .property-info-grid div:hover {
+    border-color: #99f6e4;
+    background: #f0fdfa;
+}
+
+.property-details-card .property-info-grid strong {
+    display: block;
+    color: #475569;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.property-details-card .property-info-grid span {
+    color: #0f766e;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* =====================================
+   FACILITIES
+===================================== */
+
+.facility-list,
+.nearby-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 12px;
+}
+
+.facility-list span,
+.nearby-list span {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 8px 12px;
+    border-radius: 20px;
+    color: #334155;
+    font-size: 13px;
+}
+
+/* =====================================
+   DESCRIPTION
+===================================== */
+
+.property-description {
+    background: #f8fafc;
+    border-left: 4px solid #0f766e;
+    padding: 16px 18px;
+    border-radius: 8px;
+    color: #64748b;
+    line-height: 1.7;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+.property-details-card .property-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.property-details-card .back-button,
+.property-details-card .request-button {
+    padding: 12px 20px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.property-details-card .back-button {
+    border: 1px solid #0f766e;
+    color: #0f766e;
+    background: white;
+}
+
+.property-details-card .back-button:hover {
+    background: #f0fdfa;
+}
+
+.property-details-card .request-button {
+    background: #0f766e;
+    color: white;
+}
+
+.property-details-card .request-button:hover {
+    background: #115e59;
+    transform: translateY(-2px);
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 700px) {
+
+    .property-details-section {
+        padding: 20px 4%;
+    }
+
+    .property-details-card .property-image,
+    .property-details-card .property-image img {
+        height: 130px !important;
+    }
+
+    .property-details-card .property-info {
+        padding: 25px 20px;
+    }
+
+    .property-details-card .property-info h1 {
+        font-size: 26px;
+    }
+
+    .property-details-card .property-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .property-details-card .property-info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .property-details-card .property-buttons {
+        flex-direction: column;
+    }
+
+    .property-details-card .property-buttons a {
+        text-align: center;
+    }
+}
+/* =====================================
+   DIFFERENT PROPERTY THEMES
+===================================== */
+
+/* COMMON INFORMATION AREA */
+
+.property-details-card .property-info {
+    padding: 30px 38px 40px;
+    background: #ffffff;
+}
+
+
+/* =========================================
+   PROPERTY DETAILS DARK THEMES
+   ========================================= */
+
+/* PROPERTY 1 - DARK GREEN */
+.property-theme-1 {
+    border: 2px solid #0f766e;
+    background: #e6fffa;
+    box-shadow: 0 10px 30px rgba(15, 118, 110, 0.18);
+}
+
+.property-theme-1 .property-info h1,
+.property-theme-1 h2 {
+    color: #064e3b;
+}
+
+.property-theme-1 .property-price {
+    color: #047857;
+}
+
+.property-theme-1 .property-feature,
+.property-theme-1 .info-box {
+    background: #ccfbf1;
+    border: 1px solid #5eead4;
+}
+
+
+/* PROPERTY 2 - DARK BLUE */
+.property-theme-2 {
+    border: 2px solid #1d4ed8;
+    background: #eff6ff;
+    box-shadow: 0 10px 30px rgba(29, 78, 216, 0.18);
+}
+
+.property-theme-2 .property-info h1,
+.property-theme-2 h2 {
+    color: #1e3a8a;
+}
+
+.property-theme-2 .property-price {
+    color: #1d4ed8;
+}
+
+.property-theme-2 .property-feature,
+.property-theme-2 .info-box {
+    background: #dbeafe;
+    border: 1px solid #93c5fd;
+}
+
+
+/* PROPERTY 3 - DARK ORANGE */
+.property-theme-3 {
+    border: 2px solid #c2410c;
+    background: #fff7ed;
+    box-shadow: 0 10px 30px rgba(194, 65, 12, 0.18);
+}
+
+.property-theme-3 .property-info h1,
+.property-theme-3 h2 {
+    color: #7c2d12;
+}
+
+.property-theme-3 .property-price {
+    color: #c2410c;
+}
+
+.property-theme-3 .property-feature,
+.property-theme-3 .info-box {
+    background: #ffedd5;
+    border: 1px solid #fdba74;
+}
+/* =========================================
+   FULL PROPERTY DETAILS PAGE THEMES
+   ========================================= */
+
+/* PROPERTY 1 - DARK GREEN */
+.property-theme-1 {
+    background: #d1fae5 !important;
+    border: 2px solid #047857 !important;
+    box-shadow: 0 12px 35px rgba(4, 120, 87, 0.25) !important;
+}
+
+.property-theme-1 .property-info {
+    background: #ecfdf5 !important;
+}
+
+.property-theme-1 h1,
+.property-theme-1 h2 {
+    color: #064e3b !important;
+}
+
+.property-theme-1 p,
+.property-theme-1 li,
+.property-theme-1 span {
+    color: #14532d;
+}
+
+.property-theme-1 .info-box,
+.property-theme-1 .property-feature {
+    background: #a7f3d0 !important;
+    border-color: #34d399 !important;
+}
+
+
+/* PROPERTY 2 - DARK BLUE */
+.property-theme-2 {
+    background: #dbeafe !important;
+    border: 2px solid #1d4ed8 !important;
+    box-shadow: 0 12px 35px rgba(29, 78, 216, 0.25) !important;
+}
+
+.property-theme-2 .property-info {
+    background: #eff6ff !important;
+}
+
+.property-theme-2 h1,
+.property-theme-2 h2 {
+    color: #1e3a8a !important;
+}
+
+.property-theme-2 p,
+.property-theme-2 li,
+.property-theme-2 span {
+    color: #1e40af;
+}
+
+.property-theme-2 .info-box,
+.property-theme-2 .property-feature {
+    background: #bfdbfe !important;
+    border-color: #60a5fa !important;
+}
+
+
+/* PROPERTY 3 - DARK ORANGE */
+.property-theme-3 {
+    background: #ffedd5 !important;
+    border: 2px solid #c2410c !important;
+    box-shadow: 0 12px 35px rgba(194, 65, 12, 0.25) !important;
+}
+
+.property-theme-3 .property-info {
+    background: #fff7ed !important;
+}
+
+.property-theme-3 h1,
+.property-theme-3 h2 {
+    color: #7c2d12 !important;
+}
+
+.property-theme-3 p,
+.property-theme-3 li,
+.property-theme-3 span {
+    color: #9a3412;
+}
+
+.property-theme-3 .info-box,
+.property-theme-3 .property-feature {
+    background: #fed7aa !important;
+    border-color: #fb923c !important;
+}
+
+
+/* DETAILS SECTION */
+.property-details-section {
+    background: #f1f5f9 !important;
+    padding: 35px 20px !important;
+    min-height: 100vh;
+}
+
+
+/* PROPERTY CARD */
+.property-details-card {
+    border-radius: 24px !important;
+    overflow: hidden;
+}
+
+
+/* INFORMATION BOXES */
+.property-details-card .info-box,
+.property-details-card .property-feature {
+    border-radius: 16px !important;
+    padding: 18px !important;
+    transition: 0.3s;
+}
+
+.property-details-card .info-box:hover,
+.property-details-card .property-feature:hover {
+    transform: translateY(-3px);
+}
+
+
+/* HEADINGS */
+.property-details-card h2 {
+    font-weight: 800;
+    margin-top: 28px;
+}
+
+
+/* BUTTONS */
+.property-details-card a,
+.property-details-card button {
+    border-radius: 12px !important;
+}
+/* =========================================
+   PROPERTY 3 - ORANGE THEME
+   ========================================= */
+
+.property-3 {
+    background: #fff7ed !important;
+}
+
+/* Main details area */
+.property-3 .property-details-card {
+    background: #fffaf5 !important;
+    border-top: 5px solid #f97316 !important;
+}
+
+/* Headings */
+.property-3 h1,
+.property-3 h2,
+.property-3 h3 {
+    color: #9a3412 !important;
+}
+
+/* Information boxes */
+.property-3 .property-info-box,
+.property-3 .info-box,
+.property-3 .detail-box {
+    background: #ffedd5 !important;
+    border-color: #fdba74 !important;
+}
+
+/* Green text बदलून Orange */
+.property-3 .property-details-card strong,
+.property-3 .property-details-card .highlight {
+    color: #ea580c !important;
+}
+
+/* Facilities */
+.property-3 .facility-item,
+.property-3 .facility-tag {
+    background: #fff7ed !important;
+    border-color: #fb923c !important;
+    color: #9a3412 !important;
+}
+
+/* About property box */
+.property-3 .about-property {
+    background: #ffedd5 !important;
+    border-left: 5px solid #f97316 !important;
+}
+
+/* Nearby facilities */
+.property-3 .nearby-item {
+    background: #fff7ed !important;
+    border-color: #fdba74 !important;
+}
+
+/* Suitable for */
+.property-3 .suitable-item {
+    background: #ffedd5 !important;
+    border-color: #fb923c !important;
+}
+
+/* Main buttons */
+.property-3 .card-button,
+.property-3 .request-button,
+.property-3 .btn-primary {
+    background: #ea580c !important;
+    color: white !important;
+}
+
+.property-3 .card-button:hover,
+.property-3 .request-button:hover,
+.property-3 .btn-primary:hover {
+    background: #c2410c !important;
+}
+/* TENANT DASHBOARD */
+
+.dashboard-page {
+    background: #f0fdfa;
+}
+
+.tenant-dashboard {
+    min-height: calc(100vh - 80px);
+    padding: 60px 7%;
+}
+
+.tenant-dashboard .dashboard-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tenant-dashboard .dashboard-heading h1 {
+    color: #115e59;
+    font-size: 38px;
+}
+
+.tenant-dashboard .dashboard-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+    border: 1px solid #ccfbf1;
+}
+
+.tenant-dashboard .card-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.tenant-dashboard .dashboard-card h2 {
+    color: #115e59;
+}
+
+.tenant-dashboard .card-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 11px 20px;
+    background: #0f766e;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+/* =========================
+   ADD PROPERTY FORM
+========================= */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 550px;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.auth-card form label {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 7px;
+}
+
+.auth-card form input,
+.auth-card form select,
+.auth-card form button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.auth-card form input,
+.auth-card form select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.auth-card form button {
+    margin-top: 20px;
+}
+

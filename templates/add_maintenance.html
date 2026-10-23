@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Maintenance Request | RentNest</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="dashboard-page">
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏠 RentNest
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/tenant-dashboard">
+                Dashboard
+            </a>
+
+            <a href="/properties">
+                Properties
+            </a>
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- MAINTENANCE FORM -->
+
+    <section class="tenant-dashboard">
+
+        <div class="dashboard-heading">
+
+            <p class="small-heading">
+                MAINTENANCE REQUEST
+            </p>
+
+            <h1>
+                🔧 Report a Problem
+            </h1>
+
+            <p>
+                Submit your property maintenance request.
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <form method="POST"
+                  action="/add-maintenance">
+
+
+                <!-- PROPERTY -->
+
+                <label>
+                    Select Property
+                </label>
+
+                <select name="property_id"
+                        required>
+
+                    <option value="">
+                        Select Property
+                    </option>
+
+                    {% for property in properties %}
+
+                    <option value="{{ property['id'] }}">
+
+                        {{ property['title'] }}
+                        - {{ property['location'] }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+
+                <br><br>
+
+
+                <!-- PROBLEM -->
+
+                <label>
+                    Describe Your Problem
+                </label>
+
+                <textarea name="problem"
+                          rows="5"
+                          placeholder="Example: Water leakage in bathroom..."
+                          required></textarea>
+
+
+                <br><br>
+
+
+                <!-- SUBMIT -->
+
+                <button type="submit"
+                        class="card-button">
+
+                    Submit Request
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>
+

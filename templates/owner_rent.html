@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rent Records | RentNest</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="dashboard-page">
+    <nav class="navbar">
+        <div class="logo">🏠 RentNest</div>
+        <div class="nav-links">
+            <a href="/owner-dashboard">Dashboard</a>
+            <a href="/owner-properties">Properties</a>
+            <a href="/owner-requests">Requests</a>
+            <a href="/logout">Logout</a></div></nav>
+<section class="dashboard-section">
+    <div class="dashboard-heading">
+        <p class="small-heading">OWNER RENT MANAGEMENT</p>
+        <h1>💰 Rent Records</h1>
+        <p>Manage monthly rent records and payments.</p>
+    </div>
+    <div style="text-align:center;margin-bottom:30px">
+        <a href="/add-rent" class="card-button">➕ Add Rent Record</a>
+    </div>
+<div class="dashboard-cards">{% for rent in rent_records %}<div class="dashboard-card"><div class="card-icon">💰</div>
+<h2>{{ rent['tenant_name'] }}</h2><p>📧 {{ rent['tenant_email'] }}
+    <br>🏠 {{ rent['property_title'] }}
+    <br>📍 {{ rent['property_location'] }}<br>💰 
+    <strong>₹{{ rent['amount'] }}</strong>
+    <br>📅 Due: {{ rent['due_date'] or 'Not set' }}<br>📌 Status: 
+    <strong>{{ rent['status'] }}</strong>
+    
+    {% if rent['status']=='Paid' %}<br>✅ Paid: {{ rent['payment_date'] }}{% endif %}</p>
+<a href="{{ url_for('edit_rent', rent_id=rent['id']) }}" class="card-button">✏️ Edit</a>
+        {% if rent['status'] != 'Paid' %}
+        <a href="{{ url_for('mark_rent_paid', rent_id=rent['id']) }}" class="card-button">✅ Mark as Paid</a>
+                {% endif %}
+            <a href="{{ url_for('delete_rent', rent_id=rent['id']) }}" class="card-button" onclick="return confirm('Delete this rent record?');">🗑️ Delete</a>
+        </div>
+                {% else %}
+            <div class="dashboard-card">
+                    <h2>No Rent Records</h2>
+                        <p>No rent records have been created yet.</p>
+    <a href="/add-rent" class="card-button">Add First Rent</a>
+    </div>
+        {% endfor %}
+    </div>
+
+    <div>   
+    <a href="/owner-dashboard"
+           class="card-button">
+
+            ← Dashboard
+
+        </a>
+
+    </div>
+</section>
+</body>
+</html>

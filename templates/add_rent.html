@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Rent | RentNest</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏠 RentNest
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/owner-dashboard">
+            Dashboard
+        </a>
+
+        <a href="/owner-properties">
+            My Properties
+        </a>
+
+        <a href="/owner-rent">
+            Rent Records
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ADD RENT SECTION -->
+
+<section class="auth-container">
+
+    <div class="auth-card">
+
+        <p class="small-heading">
+            OWNER RENT MANAGEMENT
+        </p>
+
+        <h1>
+            💰 Add Rent Record
+        </h1>
+
+        <p>
+            Add monthly rent details for your tenant.
+        </p>
+
+
+        <form method="POST">
+
+
+            <!-- TENANT -->
+
+            <label>
+                Select Tenant
+            </label>
+
+            <select name="tenant_id" required>
+
+                <option value="">
+                    Select Tenant
+                </option>
+
+                {% for tenant in tenants %}
+
+                <option value="{{ tenant['id'] }}">
+
+                    {{ tenant['name'] }}
+                    - {{ tenant['email'] }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+
+            <!-- PROPERTY -->
+
+            <label>
+                Select Property
+            </label>
+
+            <select name="property_id" required>
+
+                <option value="">
+                    Select Property
+                </option>
+
+                {% for property in properties %}
+
+                <option value="{{ property['id'] }}">
+
+                    {{ property['title'] }}
+                    - {{ property['location'] }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+
+            <!-- AMOUNT -->
+
+            <label>
+                Rent Amount
+            </label>
+
+            <input
+                type="number"
+                name="amount"
+                placeholder="Example: 10000"
+                required
+            >
+
+
+            <!-- DUE DATE -->
+
+            <label>
+                Rent Due Date
+            </label>
+
+            <input
+                type="date"
+                name="due_date"
+                required
+            >
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="card-button">
+
+                ➕ Add Rent Record
+
+            </button>
+
+
+        </form>
+
+
+        <br>
+
+
+        <a href="/owner-rent"
+           class="card-button">
+
+            ← Back to Rent Records
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+</body>
+
+</html>

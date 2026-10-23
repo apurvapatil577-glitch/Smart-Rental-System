@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>RentNest | Smart Rental System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        /* Property Details Popup */
+
+        .property-details-box {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .property-details-box h2 {
+            margin-bottom: 15px;
+            color: #1f2937;
+        }
+
+        .property-details-box p {
+            margin: 10px 0;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .details-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .details-list span {
+            background: #f3f4f6;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            padding: 10px 20px;
+            border: none;
+            background: #dc2626;
+            color: white;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .view-btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #111827;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .view-btn:hover {
+            background: #2563eb;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏠 RentNest
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="#properties">Properties</a>
+
+            <a href="#about">About</a>
+
+            <a href="/contact">Contact</a>
+
+            <a href="/login" class="login-btn">
+                Login
+            </a>
+
+            <a href="/register" class="register-btn">
+                Register
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-heading">
+                SMART RENTAL PLATFORM
+            </p>
+
+            <h1>
+                Find Your
+                <span>Perfect Home</span>
+            </h1>
+
+            <p class="hero-text">
+                Discover rooms, flats, PGs and rental properties
+                easily in one smart platform.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#properties"
+                   class="primary-btn">
+                    🔍 Find a Property
+                </a>
+
+                <a href="/register"
+                   class="secondary-btn">
+                    🏠 List Your Property
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Properties Section -->
+
+    <section class="properties-section"
+             id="properties">
+
+        <div class="section-heading">
+
+            <p>EXPLORE RENTALS</p>
+
+            <h2>
+                Featured Properties
+            </h2>
+
+            <span>
+                Find a place that feels like home.
+            </span>
+
+        </div>
+
+
+
+        <div class="property-container">
+
+
+            <!-- Property 1 -->
+
+            <div class="property-card">
+
+                <div class="property-image image-one">
+
+                    <span class="available">
+                        Available
+                    </span>
+
+                </div>
+
+                <div class="property-info">
+
+                    <h3>
+                        Modern 1 BHK Flat
+                    </h3>
+
+                    <p class="location">
+                        📍 Pune, Maharashtra
+                    </p>
+
+                    <div class="property-details">
+
+                        <span>🛏 1 BHK</span>
+
+                        <span>🚿 1 Bath</span>
+
+                        <span>🚗 Parking</span>
+
+                    </div>
+
+                    <div class="property-bottom">
+
+                        <strong>
+                            ₹12,000
+                            <small>/month</small>
+                        </strong>
+
+                        <button class="view-btn"
+                                onclick="showProperty(1)">
+                            View Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Property 2 -->
+
+            <div class="property-card">
+
+                <div class="property-image image-two">
+
+                    <span class="available">
+                        Available
+                    </span>
+
+                </div>
+
+                <div class="property-info">
+
+                    <h3>
+                        Premium PG Room
+                    </h3>
+
+                    <p class="location">
+                        📍 Wakad, Pune
+                    </p>
+
+                    <div class="property-details">
+
+                        <span>🛏 Single Room</span>
+
+                        <span>📶 Wi-Fi</span>
+
+                        <span>🍴 Food</span>
+
+                    </div>
+
+                    <div class="property-bottom">
+
+                        <strong>
+                            ₹8,500
+                            <small>/month</small>
+                        </strong>
+
+                        <button class="view-btn"
+                                onclick="showProperty(2)">
+                            View Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Property 3 -->
+
+            <div class="property-card">
+
+                <div class="property-image image-three">
+
+                    <span class="available">
+                        Available
+                    </span>
+
+                </div>
+
+                <div class="property-info">
+
+                    <h3>
+                        Luxury 2 BHK Apartment
+                    </h3>
+
+                    <p class="location">
+                        📍 Hinjewadi, Pune
+                    </p>
+
+                    <div class="property-details">
+
+                        <span>🛏 2 BHK</span>
+
+                        <span>🚿 2 Bath</span>
+
+                        <span>🚗 Parking</span>
+
+                    </div>
+
+                    <div class="property-bottom">
+
+                        <strong>
+                            ₹20,000
+                            <small>/month</small>
+                        </strong>
+
+                        <button class="view-btn"
+                                onclick="showProperty(3)">
+                            View Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PROPERTY DETAILS -->
+
+        <div id="propertyDetails"
+             class="property-details-box">
+
+            <h2 id="detailTitle">
+                Property Details
+            </h2>
+
+            <p id="detailLocation"></p>
+
+            <p id="detailDescription"></p>
+
+            <div class="details-list"
+                 id="detailAmenities">
+            </div>
+
+            <h3 id="detailPrice"></h3>
+
+            <br>
+
+            <button class="close-btn"
+                    onclick="closeProperty()">
+                ✕ Close Details
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- About Section -->
+
+    <section class="about-section"
+             id="about">
+
+        <div>
+
+            <p class="small-heading">
+                ABOUT RENTNEST
+            </p>
+
+            <h2>
+                Rental management made simple.
+            </h2>
+
+            <p>
+                RentNest helps tenants find suitable rental
+                properties and helps owners manage their
+                properties, rental requests and tenants
+                from one simple platform.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Footer -->
+
+    <footer id="contact">
+
+        <h2>
+            🏠 RentNest
+        </h2>
+
+        <p>
+            Smart Rental & Room Management System
+        </p>
+
+        <p>
+            © 2026 RentNest. BCA Final Year Project.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        function showProperty(propertyNumber) {
+
+            const box = document.getElementById("propertyDetails");
+
+            const title = document.getElementById("detailTitle");
+
+            const location = document.getElementById("detailLocation");
+
+            const description = document.getElementById("detailDescription");
+
+            const amenities = document.getElementById("detailAmenities");
+
+            const price = document.getElementById("detailPrice");
+
+
+            if (propertyNumber === 1) {
+
+                title.innerHTML = "🏠 Modern 1 BHK Flat";
+
+                location.innerHTML =
+                    "📍 Pune, Maharashtra";
+
+                description.innerHTML =
+                    "A comfortable and modern 1 BHK flat suitable for students, working professionals and small families.";
+
+                amenities.innerHTML =
+                    "<span>🛏 1 BHK</span>" +
+                    "<span>🚿 1 Bathroom</span>" +
+                    "<span>🚗 Parking</span>" +
+                    "<span>💧 Water Supply</span>" +
+                    "<span>⚡ Electricity</span>" +
+                    "<span>🔐 Security</span>";
+
+                price.innerHTML =
+                    "💰 Rent: ₹12,000 / month";
+
+            }
+
+
+            else if (propertyNumber === 2) {
+
+                title.innerHTML = "🏠 Premium PG Room";
+
+                location.innerHTML =
+                    "📍 Wakad, Pune";
+
+                description.innerHTML =
+                    "A clean and comfortable PG room with useful facilities for students and working professionals.";
+
+                amenities.innerHTML =
+                    "<span>🛏 Single Room</span>" +
+                    "<span>📶 Wi-Fi</span>" +
+                    "<span>🍴 Food</span>" +
+                    "<span>🧹 Housekeeping</span>" +
+                    "<span>🔐 Security</span>" +
+                    "<span>💧 Water Supply</span>";
+
+                price.innerHTML =
+                    "💰 Rent: ₹8,500 / month";
+
+            }
+
+
+            else if (propertyNumber === 3) {
+
+                title.innerHTML =
+                    "🏠 Luxury 2 BHK Apartment";
+
+                location.innerHTML =
+                    "📍 Hinjewadi, Pune";
+
+                description.innerHTML =
+                    "A spacious and premium 2 BHK apartment with modern facilities and convenient parking.";
+
+                amenities.innerHTML =
+                    "<span>🛏 2 BHK</span>" +
+                    "<span>🚿 2 Bathrooms</span>" +
+                    "<span>🚗 Parking</span>" +
+                    "<span>🏢 Lift</span>" +
+                    "<span>🔐 Security</span>" +
+                    "<span>💧 Water Supply</span>";
+
+                price.innerHTML =
+                    "💰 Rent: ₹20,000 / month";
+
+            }
+
+
+            box.style.display = "block";
+
+            box.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+
+        function closeProperty() {
+
+            document.getElementById("propertyDetails").style.display = "none";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

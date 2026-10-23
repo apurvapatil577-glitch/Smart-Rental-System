@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Property Details | RentNest</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏠 RentNest
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/properties">
+                Properties
+            </a>
+
+            {% if session.get("user_id") %}
+
+                <a href="/owner-dashboard">
+                    Dashboard
+                </a>
+
+                <a href="/logout">
+                    Logout
+                </a>
+
+            {% else %}
+
+                <a href="/login">
+                    Login
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- PROPERTY DETAILS -->
+
+    <section class="dashboard-section">
+
+
+        <div class="dashboard-heading">
+
+            <p class="small-heading">
+                PROPERTY DETAILS
+            </p>
+
+            <h1>
+                {{ property["title"] }} 🏠
+            </h1>
+
+            <p>
+                Complete information about this rental property.
+            </p>
+
+        </div>
+
+
+
+        <!-- PROPERTY CARD -->
+
+        <div class="dashboard-cards">
+
+
+            <div class="dashboard-card">
+
+
+                <div class="card-icon">
+                    🏠
+                </div>
+
+
+                <h2>
+                    {{ property["title"] }}
+                </h2>
+
+
+                <p>
+
+                    📍 <strong>Location:</strong>
+                    {{ property["location"] }}
+
+                    <br><br>
+
+                    🏠 <strong>Property Type:</strong>
+                    {{ property["property_type"] }}
+
+                    <br><br>
+
+                    💰 <strong>Monthly Rent:</strong>
+                    ₹{{ property["rent"] }}
+
+                    <br><br>
+
+                    💳 <strong>Deposit:</strong>
+                    ₹{{ property["deposit"] or 0 }}
+
+                    <br><br>
+
+                    ✨ <strong>Facilities:</strong>
+                    {{ property["facilities"] or "Facilities available" }}
+
+                    <br><br>
+
+                    📌 <strong>Status:</strong>
+                    {{ property["status"] }}
+
+                </p>
+
+
+
+                {% if property["status"] == "Available" %}
+
+                    {% if session.get("user_id") and session.get("role") == "Tenant" %}
+
+                        <a href="/request-rental/{{ property['id'] }}"
+                           class="card-button">
+
+                            💌 Send Rental Request
+
+                        </a>
+                        <br>
+                        <a href="/tenant-dashboard"
+                             class="card-button">
+
+                             ← Dashboard
+                        </a>
+
+    
+
+                    {% elif not session.get("user_id") %}
+
+                        <a href="/login"
+                           class="card-button">
+
+                            Login to Request
+
+                        </a>
+
+                    {% endif %}
+
+                {% else %}
+
+                    <p style="color:#dc2626; font-weight:bold;">
+                        ❌ This property is currently occupied.
+                    </p>
+
+                {% endif %}
+
+
+
+                <br>
+
+            </div>
+
+
+        </div>
+
+        <div>   
+    <a href="/owner-dashboard"
+           class="card-button">
+
+            ← Dashboard
+
+        </a>
+
+    </div>
+
+
+    </section>
+
+
+</body>
+
+</html>

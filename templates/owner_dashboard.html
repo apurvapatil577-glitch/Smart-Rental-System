@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Owner Dashboard | RentNest</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="dashboard-page">
+
+<nav class="navbar">
+
+<div class="logo">
+    🏠 RentNest
+</div>
+
+<div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/properties">Properties</a>
+    <a href="/logout">Logout</a>
+</div>
+
+</nav>
+
+<section class="tenant-dashboard">
+
+<div class="dashboard-heading">
+
+    <p class="small-heading">
+        OWNER DASHBOARD
+    </p>
+
+    <h1>
+        👋 Welcome, {{ name }}!
+    </h1>
+
+    <p>
+        Manage your rental property with RentNest.
+    </p>
+
+</div>
+
+
+<div class="dashboard-cards">
+
+
+    <div class="dashboard-card">
+
+        <div class="card-icon">🏠</div>
+
+        <h2>Add Property</h2>
+
+        <p>
+            Add a new rental property.
+        </p>
+
+        <a href="/add-property"
+           class="card-button">
+            Add Property
+        </a>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <div class="card-icon">🏢</div>
+
+        <h2>My Properties</h2>
+
+        <p>
+            View your rental properties.
+        </p>
+
+        <a href="/owner-properties"
+           class="card-button">
+            View Properties
+        </a>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <div class="card-icon">📩</div>
+
+        <h2>Rental Requests</h2>
+
+        <p>
+            Manage tenant requests.
+        </p>
+
+        <a href="/owner-requests"
+           class="card-button">
+            View Requests
+        </a>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <div class="card-icon">🔧</div>
+
+        <h2>Maintenance</h2>
+
+        <p>
+            Manage maintenance requests.
+        </p>
+
+        <a href="/owner-maintenance"
+           class="card-button">
+            View
+        </a>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <div class="card-icon">💰</div>
+
+        <h2>Rent Records</h2>
+
+        <p>
+            Manage monthly rent.
+        </p>
+
+        <a href="/owner-rent"
+           class="card-button">
+            View
+        </a>
+
+    </div>
+
+
+</div>
+
+</section>
+
+</body>
+</html>

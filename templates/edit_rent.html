@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Rent | RentNest</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+<body class="dashboard-page">
+    <nav class="navbar">
+        <div class="logo">🏠 RentNest</div>
+        <div class="nav-links">
+            <a href="/owner-dashboard">Dashboard</a>
+            <a href="/owner-rent">Rent Records</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+<section class="tenant-dashboard">
+    <div class="dashboard-heading">
+        <p class="small-heading">RENT MANAGEMENT</p>
+        <h1>✏️ Edit Rent Record</h1>
+        <p>{{ rent['property_title'] }}</p>
+    </div>
+
+    <div class="dashboard-card">
+        <form method="POST"><label>Amount</label>
+            <input type="number" name="amount" min="1" value="{{ rent['amount'] }}" required>
+
+            <br>
+
+            <br>
+
+            <label>Due Date</label>
+            <input type="date" name="due_date" value="{{ rent['due_date'] }}">
+            
+            <br>
+
+            <br>
+
+            <button type="submit" class="card-button">💾 Save Changes</button>
+             <a href="/owner-rent" class="card-button">Cancel</a>
+</form>
+</div>
+</section>
+</body>
+</html>
